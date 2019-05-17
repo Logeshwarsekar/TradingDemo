@@ -1,0 +1,323 @@
+2019-05-15 06:07:05,223 ERROR org.springframework.boot.SpringApplication [restartedMain] Application startup failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'inMemoryDatabaseShutdownExecutor' defined in class path resource [org/springframework/boot/devtools/autoconfigure/DevToolsDataSourceAutoConfiguration.class]: Unsatisfied dependency expressed through method 'inMemoryDatabaseShutdownExecutor' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.tomcat.jdbc.pool.DataSource]: Factory method 'dataSource' threw exception; nested exception is java.lang.IllegalStateException: Cannot load driver class: com.mysql.jdbc.Driver
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:749)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:467)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1177)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1072)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:511)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:481)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:308)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:297)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1082)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:542)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:124)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.main.DemoApplication.main(DemoApplication.java:16)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.tomcat.jdbc.pool.DataSource]: Factory method 'dataSource' threw exception; nested exception is java.lang.IllegalStateException: Cannot load driver class: com.mysql.jdbc.Driver
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1177)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1072)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:511)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:481)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:308)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1131)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1059)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:835)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:741)
+	... 26 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.tomcat.jdbc.pool.DataSource]: Factory method 'dataSource' threw exception; nested exception is java.lang.IllegalStateException: Cannot load driver class: com.mysql.jdbc.Driver
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:189)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
+	... 39 common frames omitted
+Caused by: java.lang.IllegalStateException: Cannot load driver class: com.mysql.jdbc.Driver
+	at org.springframework.util.Assert.state(Assert.java:70)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceProperties.determineDriverClassName(DataSourceProperties.java:232)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceProperties.initializeDataSourceBuilder(DataSourceProperties.java:184)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration.createDataSource(DataSourceConfiguration.java:43)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat.dataSource(DataSourceConfiguration.java:60)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat$$EnhancerBySpringCGLIB$$fa6b6645.CGLIB$dataSource$0(<generated>)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat$$EnhancerBySpringCGLIB$$fa6b6645$$FastClassBySpringCGLIB$$c0e9be63.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:358)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat$$EnhancerBySpringCGLIB$$fa6b6645.dataSource(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
+	... 40 common frames omitted
+2019-05-15 06:08:30,511 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [restartedMain] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Cannot determine embedded database driver class for database type NONE
+
+Action:
+
+If you want an embedded database please put a supported one on the classpath. If you have database settings to be loaded from a particular profile you may need to active it (no profiles are currently active).
+
+2019-05-15 06:14:28,999 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [restartedMain] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Cannot determine embedded database driver class for database type NONE
+
+Action:
+
+If you want an embedded database please put a supported one on the classpath. If you have database settings to be loaded from a particular profile you may need to active it (no profiles are currently active).
+
+2019-05-15 06:26:07,823 INFO com.main.DemoApplication [restartedMain] Starting DemoApplication on DESKTOP-5DNORTS with PID 9352 (C:\stsWorksapce\demo\demo\target\classes started by user1 in C:\stsWorksapce\demo\demo)
+2019-05-15 06:26:07,823 INFO com.main.DemoApplication [restartedMain] No active profile set, falling back to default profiles: default
+2019-05-15 06:26:07,823 INFO org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext [restartedMain] Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6f7c5a88: startup date [Wed May 15 06:26:07 PDT 2019]; root of context hierarchy
+2019-05-15 06:26:08,245 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [restartedMain] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-05-15 06:26:08,433 INFO org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer [restartedMain] Tomcat initialized with port(s): 8235 (http)
+2019-05-15 06:26:08,433 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2019-05-15 06:26:08,433 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet Engine: Apache Tomcat/8.5.40
+2019-05-15 06:26:08,636 INFO org.apache.jasper.servlet.TldScanner [localhost-startStop-1] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-05-15 06:26:08,636 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [localhost-startStop-1] Initializing Spring embedded WebApplicationContext
+2019-05-15 06:26:08,636 INFO org.springframework.web.context.ContextLoader [localhost-startStop-1] Root WebApplicationContext: initialization completed in 813 ms
+2019-05-15 06:26:08,698 INFO org.springframework.boot.web.servlet.ServletRegistrationBean [localhost-startStop-1] Mapping servlet: 'dispatcherServlet' to [/]
+2019-05-15 06:26:08,698 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-05-15 06:26:08,714 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-05-15 06:26:08,714 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-05-15 06:26:08,714 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'requestContextFilter' to: [/*]
+2019-05-15 06:26:08,839 INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter [restartedMain] Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6f7c5a88: startup date [Wed May 15 06:26:07 PDT 2019]; root of context hierarchy
+2019-05-15 06:26:08,852 INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [restartedMain] Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-05-15 06:26:08,852 INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [restartedMain] Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-05-15 06:26:08,883 INFO org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [restartedMain] Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-15 06:26:08,883 INFO org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [restartedMain] Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-15 06:26:08,899 INFO org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [restartedMain] Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-15 06:26:08,946 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2019-05-15 06:26:09,008 INFO org.springframework.jmx.export.annotation.AnnotationMBeanExporter [restartedMain] Registering beans for JMX exposure on startup
+2019-05-15 06:26:09,040 INFO org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer [restartedMain] Tomcat started on port(s): 8235 (http)
+2019-05-15 06:26:09,040 INFO com.main.DemoApplication [restartedMain] Started DemoApplication in 1.294 seconds (JVM running for 29.311)
+2019-05-15 06:26:56,747 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8235-exec-1] Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-05-15 06:26:56,761 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8235-exec-1] FrameworkServlet 'dispatcherServlet': initialization started
+2019-05-15 06:26:56,778 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8235-exec-1] FrameworkServlet 'dispatcherServlet': initialization completed in 17 ms
+2019-05-15 06:28:31,516 INFO org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext [Thread-10] Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6f7c5a88: startup date [Wed May 15 06:26:07 PDT 2019]; root of context hierarchy
+2019-05-15 06:28:31,534 INFO org.springframework.jmx.export.annotation.AnnotationMBeanExporter [Thread-10] Unregistering JMX-exposed beans on shutdown
+2019-05-15 06:28:31,906 INFO com.main.DemoApplication [restartedMain] Starting DemoApplication on DESKTOP-5DNORTS with PID 9352 (C:\stsWorksapce\demo\demo\target\classes started by user1 in C:\stsWorksapce\demo\demo)
+2019-05-15 06:28:31,906 INFO com.main.DemoApplication [restartedMain] No active profile set, falling back to default profiles: default
+2019-05-15 06:28:31,906 INFO org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext [restartedMain] Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3f174360: startup date [Wed May 15 06:28:31 PDT 2019]; root of context hierarchy
+2019-05-15 06:28:32,263 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [restartedMain] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-05-15 06:28:32,436 INFO org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer [restartedMain] Tomcat initialized with port(s): 8235 (http)
+2019-05-15 06:28:32,436 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2019-05-15 06:28:32,436 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet Engine: Apache Tomcat/8.5.40
+2019-05-15 06:28:32,593 INFO org.apache.jasper.servlet.TldScanner [localhost-startStop-1] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-05-15 06:28:32,600 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [localhost-startStop-1] Initializing Spring embedded WebApplicationContext
+2019-05-15 06:28:32,600 INFO org.springframework.web.context.ContextLoader [localhost-startStop-1] Root WebApplicationContext: initialization completed in 694 ms
+2019-05-15 06:28:32,633 INFO org.springframework.boot.web.servlet.ServletRegistrationBean [localhost-startStop-1] Mapping servlet: 'dispatcherServlet' to [/]
+2019-05-15 06:28:32,633 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-05-15 06:28:32,633 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-05-15 06:28:32,633 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-05-15 06:28:32,633 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'requestContextFilter' to: [/*]
+2019-05-15 06:28:32,757 INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter [restartedMain] Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3f174360: startup date [Wed May 15 06:28:31 PDT 2019]; root of context hierarchy
+2019-05-15 06:28:32,773 INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [restartedMain] Mapped "{[/testrun]}" onto public java.lang.String com.main.controller.MainController.testRun()
+2019-05-15 06:28:32,773 INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [restartedMain] Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-05-15 06:28:32,773 INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [restartedMain] Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-05-15 06:28:32,788 INFO org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [restartedMain] Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-15 06:28:32,788 INFO org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [restartedMain] Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-15 06:28:32,820 INFO org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [restartedMain] Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-15 06:28:32,882 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2019-05-15 06:28:33,023 INFO org.springframework.jmx.export.annotation.AnnotationMBeanExporter [restartedMain] Registering beans for JMX exposure on startup
+2019-05-15 06:28:33,070 INFO org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer [restartedMain] Tomcat started on port(s): 8235 (http)
+2019-05-15 06:28:33,070 INFO com.main.DemoApplication [restartedMain] Started DemoApplication in 1.227 seconds (JVM running for 173.348)
+2019-05-15 06:28:35,553 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8235-exec-1] Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-05-15 06:28:35,571 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8235-exec-1] FrameworkServlet 'dispatcherServlet': initialization started
+2019-05-15 06:28:35,573 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8235-exec-1] FrameworkServlet 'dispatcherServlet': initialization completed in 0 ms
+2019-05-15 22:12:51,112 INFO com.main.DemoApplication [restartedMain] Starting DemoApplication on DESKTOP-5DNORTS with PID 6968 (C:\stsWorksapce\demo\demo\target\classes started by user1 in C:\stsWorksapce\demo\demo)
+2019-05-15 22:12:51,127 INFO com.main.DemoApplication [restartedMain] No active profile set, falling back to default profiles: default
+2019-05-15 22:12:51,269 INFO org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext [restartedMain] Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@33ba166c: startup date [Wed May 15 22:12:51 PDT 2019]; root of context hierarchy
+2019-05-15 22:12:53,063 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [restartedMain] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-05-15 22:12:54,268 INFO org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer [restartedMain] Tomcat initialized with port(s): 8235 (http)
+2019-05-15 22:12:54,325 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2019-05-15 22:12:54,327 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet Engine: Apache Tomcat/8.5.40
+2019-05-15 22:12:54,844 INFO org.apache.jasper.servlet.TldScanner [localhost-startStop-1] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-05-15 22:12:54,859 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [localhost-startStop-1] Initializing Spring embedded WebApplicationContext
+2019-05-15 22:12:54,859 INFO org.springframework.web.context.ContextLoader [localhost-startStop-1] Root WebApplicationContext: initialization completed in 3594 ms
+2019-05-15 22:12:55,153 INFO org.springframework.boot.web.servlet.ServletRegistrationBean [localhost-startStop-1] Mapping servlet: 'dispatcherServlet' to [/]
+2019-05-15 22:12:55,159 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-05-15 22:12:55,161 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-05-15 22:12:55,161 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-05-15 22:12:55,161 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'requestContextFilter' to: [/*]
+2019-05-15 22:12:55,930 INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter [restartedMain] Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@33ba166c: startup date [Wed May 15 22:12:51 PDT 2019]; root of context hierarchy
+2019-05-15 22:12:56,109 INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [restartedMain] Mapped "{[/testrun]}" onto public java.lang.String com.main.controller.MainController.testRun()
+2019-05-15 22:12:56,121 INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [restartedMain] Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-05-15 22:12:56,123 INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [restartedMain] Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-05-15 22:12:56,214 INFO org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [restartedMain] Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-15 22:12:56,230 INFO org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [restartedMain] Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-15 22:12:56,316 INFO org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [restartedMain] Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-15 22:12:56,587 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2019-05-15 22:12:56,658 INFO org.springframework.jmx.export.annotation.AnnotationMBeanExporter [restartedMain] Registering beans for JMX exposure on startup
+2019-05-15 22:12:56,761 INFO org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer [restartedMain] Tomcat started on port(s): 8235 (http)
+2019-05-15 22:12:56,769 INFO com.main.DemoApplication [restartedMain] Started DemoApplication in 6.463 seconds (JVM running for 7.449)
+2019-05-15 22:13:13,468 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8235-exec-1] Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-05-15 22:13:13,468 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8235-exec-1] FrameworkServlet 'dispatcherServlet': initialization started
+2019-05-15 22:13:13,492 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8235-exec-1] FrameworkServlet 'dispatcherServlet': initialization completed in 23 ms
+2019-05-15 22:13:16,103 INFO org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext [Thread-6] Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@33ba166c: startup date [Wed May 15 22:12:51 PDT 2019]; root of context hierarchy
+2019-05-15 22:13:16,110 INFO org.springframework.jmx.export.annotation.AnnotationMBeanExporter [Thread-6] Unregistering JMX-exposed beans on shutdown
+2019-05-15 22:13:16,681 INFO com.main.DemoApplication [restartedMain] Starting DemoApplication on DESKTOP-5DNORTS with PID 6968 (C:\stsWorksapce\demo\demo\target\classes started by user1 in C:\stsWorksapce\demo\demo)
+2019-05-15 22:13:16,682 INFO com.main.DemoApplication [restartedMain] No active profile set, falling back to default profiles: default
+2019-05-15 22:13:16,688 INFO org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext [restartedMain] Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@73a5c43a: startup date [Wed May 15 22:13:16 PDT 2019]; root of context hierarchy
+2019-05-15 22:13:17,657 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [restartedMain] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-05-15 22:13:18,386 INFO org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer [restartedMain] Tomcat initialized with port(s): 8235 (http)
+2019-05-15 22:13:18,398 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2019-05-15 22:13:18,398 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet Engine: Apache Tomcat/8.5.40
+2019-05-15 22:13:18,594 INFO org.apache.jasper.servlet.TldScanner [localhost-startStop-1] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-05-15 22:13:18,599 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [localhost-startStop-1] Initializing Spring embedded WebApplicationContext
+2019-05-15 22:13:18,599 INFO org.springframework.web.context.ContextLoader [localhost-startStop-1] Root WebApplicationContext: initialization completed in 1911 ms
+2019-05-15 22:13:18,647 INFO org.springframework.boot.web.servlet.ServletRegistrationBean [localhost-startStop-1] Mapping servlet: 'dispatcherServlet' to [/]
+2019-05-15 22:13:18,648 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-05-15 22:13:18,649 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-05-15 22:13:18,649 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-05-15 22:13:18,649 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'requestContextFilter' to: [/*]
+2019-05-15 22:13:18,771 INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter [restartedMain] Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@73a5c43a: startup date [Wed May 15 22:13:16 PDT 2019]; root of context hierarchy
+2019-05-15 22:13:18,779 INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [restartedMain] Mapped "{[/testrun]}" onto public java.lang.String com.main.controller.MainController.testRun()
+2019-05-15 22:13:18,782 INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [restartedMain] Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-05-15 22:13:18,783 INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [restartedMain] Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-05-15 22:13:18,805 INFO org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [restartedMain] Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-15 22:13:18,806 INFO org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [restartedMain] Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-15 22:13:18,824 INFO org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [restartedMain] Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-15 22:13:18,937 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2019-05-15 22:13:18,999 INFO org.springframework.jmx.export.annotation.AnnotationMBeanExporter [restartedMain] Registering beans for JMX exposure on startup
+2019-05-15 22:13:19,033 INFO org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer [restartedMain] Tomcat started on port(s): 8235 (http)
+2019-05-15 22:13:19,035 INFO com.main.DemoApplication [restartedMain] Started DemoApplication in 2.469 seconds (JVM running for 29.715)
+2019-05-15 22:13:22,381 INFO org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext [Thread-10] Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@73a5c43a: startup date [Wed May 15 22:13:16 PDT 2019]; root of context hierarchy
+2019-05-15 22:13:22,385 INFO org.springframework.jmx.export.annotation.AnnotationMBeanExporter [Thread-10] Unregistering JMX-exposed beans on shutdown
+2019-05-15 22:13:22,719 INFO com.main.DemoApplication [restartedMain] Starting DemoApplication on DESKTOP-5DNORTS with PID 6968 (C:\stsWorksapce\demo\demo\target\classes started by user1 in C:\stsWorksapce\demo\demo)
+2019-05-15 22:13:22,719 INFO com.main.DemoApplication [restartedMain] No active profile set, falling back to default profiles: default
+2019-05-15 22:13:22,722 INFO org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext [restartedMain] Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7b662fa2: startup date [Wed May 15 22:13:22 PDT 2019]; root of context hierarchy
+2019-05-15 22:13:23,087 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [restartedMain] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-05-15 22:13:23,267 INFO org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer [restartedMain] Tomcat initialized with port(s): 8235 (http)
+2019-05-15 22:13:23,269 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2019-05-15 22:13:23,269 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet Engine: Apache Tomcat/8.5.40
+2019-05-15 22:13:23,448 INFO org.apache.jasper.servlet.TldScanner [localhost-startStop-1] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-05-15 22:13:23,455 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [localhost-startStop-1] Initializing Spring embedded WebApplicationContext
+2019-05-15 22:13:23,456 INFO org.springframework.web.context.ContextLoader [localhost-startStop-1] Root WebApplicationContext: initialization completed in 734 ms
+2019-05-15 22:13:23,488 INFO org.springframework.boot.web.servlet.ServletRegistrationBean [localhost-startStop-1] Mapping servlet: 'dispatcherServlet' to [/]
+2019-05-15 22:13:23,490 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-05-15 22:13:23,490 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-05-15 22:13:23,490 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-05-15 22:13:23,490 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'requestContextFilter' to: [/*]
+2019-05-15 22:13:23,574 INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter [restartedMain] Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7b662fa2: startup date [Wed May 15 22:13:22 PDT 2019]; root of context hierarchy
+2019-05-15 22:13:23,586 INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [restartedMain] Mapped "{[/testrun]}" onto public java.lang.String com.main.controller.MainController.testRun()
+2019-05-15 22:13:23,589 INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [restartedMain] Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-05-15 22:13:23,589 INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [restartedMain] Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-05-15 22:13:23,595 INFO org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [restartedMain] Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-15 22:13:23,595 INFO org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [restartedMain] Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-15 22:13:23,605 INFO org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [restartedMain] Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-15 22:13:23,633 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2019-05-15 22:13:23,685 INFO org.springframework.jmx.export.annotation.AnnotationMBeanExporter [restartedMain] Registering beans for JMX exposure on startup
+2019-05-15 22:13:23,699 INFO org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer [restartedMain] Tomcat started on port(s): 8235 (http)
+2019-05-15 22:13:23,702 INFO com.main.DemoApplication [restartedMain] Started DemoApplication in 1.03 seconds (JVM running for 34.381)
+2019-05-15 22:52:16,233 INFO com.main.DemoApplication [restartedMain] Starting DemoApplication on DESKTOP-5DNORTS with PID 7276 (C:\stsWorksapce\demo\demo\target\classes started by user1 in C:\stsWorksapce\demo\demo)
+2019-05-15 22:52:16,257 INFO com.main.DemoApplication [restartedMain] No active profile set, falling back to default profiles: default
+2019-05-15 22:52:16,386 INFO org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext [restartedMain] Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@381fc85f: startup date [Wed May 15 22:52:16 PDT 2019]; root of context hierarchy
+2019-05-15 22:52:18,405 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [restartedMain] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-05-15 22:52:19,555 INFO org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer [restartedMain] Tomcat initialized with port(s): 8235 (http)
+2019-05-15 22:52:19,615 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2019-05-15 22:52:19,618 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet Engine: Apache Tomcat/8.5.40
+2019-05-15 22:52:20,183 INFO org.apache.jasper.servlet.TldScanner [localhost-startStop-1] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-05-15 22:52:20,202 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [localhost-startStop-1] Initializing Spring embedded WebApplicationContext
+2019-05-15 22:52:20,202 INFO org.springframework.web.context.ContextLoader [localhost-startStop-1] Root WebApplicationContext: initialization completed in 3821 ms
+2019-05-15 22:52:20,476 INFO org.springframework.boot.web.servlet.ServletRegistrationBean [localhost-startStop-1] Mapping servlet: 'dispatcherServlet' to [/]
+2019-05-15 22:52:20,483 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-05-15 22:52:20,485 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-05-15 22:52:20,486 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-05-15 22:52:20,486 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'requestContextFilter' to: [/*]
+2019-05-15 22:52:21,065 INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter [restartedMain] Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@381fc85f: startup date [Wed May 15 22:52:16 PDT 2019]; root of context hierarchy
+2019-05-15 22:52:21,208 INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [restartedMain] Mapped "{[/testrun]}" onto public java.lang.String com.main.controller.MainController.testRun()
+2019-05-15 22:52:21,214 INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [restartedMain] Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-05-15 22:52:21,215 INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [restartedMain] Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-05-15 22:52:21,275 INFO org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [restartedMain] Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-15 22:52:21,277 INFO org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [restartedMain] Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-15 22:52:21,354 INFO org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [restartedMain] Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-15 22:52:21,618 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2019-05-15 22:52:21,722 INFO org.springframework.jmx.export.annotation.AnnotationMBeanExporter [restartedMain] Registering beans for JMX exposure on startup
+2019-05-15 22:52:21,932 INFO org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer [restartedMain] Tomcat started on port(s): 8235 (http)
+2019-05-15 22:52:21,940 INFO com.main.DemoApplication [restartedMain] Started DemoApplication in 6.293 seconds (JVM running for 7.372)
+2019-05-15 22:52:47,405 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8235-exec-10] Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-05-15 22:52:47,407 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8235-exec-10] FrameworkServlet 'dispatcherServlet': initialization started
+2019-05-15 22:52:47,436 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8235-exec-10] FrameworkServlet 'dispatcherServlet': initialization completed in 28 ms
+2019-05-15 22:55:16,023 INFO org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext [Thread-6] Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@381fc85f: startup date [Wed May 15 22:52:16 PDT 2019]; root of context hierarchy
+2019-05-15 22:55:16,034 INFO org.springframework.jmx.export.annotation.AnnotationMBeanExporter [Thread-6] Unregistering JMX-exposed beans on shutdown
+2019-05-15 22:55:16,689 INFO com.main.DemoApplication [restartedMain] Starting DemoApplication on DESKTOP-5DNORTS with PID 7276 (C:\stsWorksapce\demo\demo\target\classes started by user1 in C:\stsWorksapce\demo\demo)
+2019-05-15 22:55:16,690 INFO com.main.DemoApplication [restartedMain] No active profile set, falling back to default profiles: default
+2019-05-15 22:55:16,697 INFO org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext [restartedMain] Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@62d04545: startup date [Wed May 15 22:55:16 PDT 2019]; root of context hierarchy
+2019-05-15 22:55:17,235 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [restartedMain] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-05-15 22:55:17,495 INFO org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer [restartedMain] Tomcat initialized with port(s): 8235 (http)
+2019-05-15 22:55:17,506 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2019-05-15 22:55:17,507 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet Engine: Apache Tomcat/8.5.40
+2019-05-15 22:55:17,775 INFO org.apache.jasper.servlet.TldScanner [localhost-startStop-1] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-05-15 22:55:17,783 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [localhost-startStop-1] Initializing Spring embedded WebApplicationContext
+2019-05-15 22:55:17,784 INFO org.springframework.web.context.ContextLoader [localhost-startStop-1] Root WebApplicationContext: initialization completed in 1087 ms
+2019-05-15 22:55:17,825 INFO org.springframework.boot.web.servlet.ServletRegistrationBean [localhost-startStop-1] Mapping servlet: 'dispatcherServlet' to [/]
+2019-05-15 22:55:17,826 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-05-15 22:55:17,828 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-05-15 22:55:17,828 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-05-15 22:55:17,828 INFO org.springframework.boot.web.servlet.FilterRegistrationBean [localhost-startStop-1] Mapping filter: 'requestContextFilter' to: [/*]
+2019-05-15 22:55:17,991 INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter [restartedMain] Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@62d04545: startup date [Wed May 15 22:55:16 PDT 2019]; root of context hierarchy
+2019-05-15 22:55:18,001 INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [restartedMain] Mapped "{[/testrun]}" onto public java.lang.String com.main.controller.MainController.testRun()
+2019-05-15 22:55:18,004 INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [restartedMain] Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-05-15 22:55:18,005 INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [restartedMain] Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-05-15 22:55:18,015 INFO org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [restartedMain] Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-15 22:55:18,015 INFO org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [restartedMain] Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-15 22:55:18,041 INFO org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [restartedMain] Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-15 22:55:18,110 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2019-05-15 22:55:18,183 INFO org.springframework.jmx.export.annotation.AnnotationMBeanExporter [restartedMain] Registering beans for JMX exposure on startup
+2019-05-15 22:55:18,215 INFO org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer [restartedMain] Tomcat started on port(s): 8235 (http)
+2019-05-15 22:55:18,217 INFO com.main.DemoApplication [restartedMain] Started DemoApplication in 1.61 seconds (JVM running for 183.65)
+2019-05-15 22:59:07,099 INFO org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext [Thread-10] Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@62d04545: startup date [Wed May 15 22:55:16 PDT 2019]; root of context hierarchy
+2019-05-15 22:59:07,099 INFO org.springframework.jmx.export.annotation.AnnotationMBeanExporter [Thread-10] Unregistering JMX-exposed beans on shutdown
+22:59:07.575 [restartedMain] INFO  com.main.DemoApplication - Starting DemoApplication on DESKTOP-5DNORTS with PID 7276 (C:\stsWorksapce\demo\demo\target\classes started by user1 in C:\stsWorksapce\demo\demo)
+22:59:07.575 [restartedMain] INFO  com.main.DemoApplication - No active profile set, falling back to default profiles: default
+22:59:07.575 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@519f7d02: startup date [Wed May 15 22:59:07 PDT 2019]; root of context hierarchy
+22:59:08.028 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+22:59:08.247 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8235 (http)
+22:59:08.262 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+22:59:08.262 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.40
+22:59:08.497 [localhost-startStop-1] INFO  org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+22:59:08.497 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+22:59:08.497 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 922 ms
+22:59:08.544 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+22:59:08.559 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+22:59:08.559 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+22:59:08.559 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+22:59:08.559 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+22:59:08.684 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@519f7d02: startup date [Wed May 15 22:59:07 PDT 2019]; root of context hierarchy
+22:59:08.700 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/testrun]}" onto public java.lang.String com.main.controller.MainController.testRun()
+22:59:08.700 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+22:59:08.700 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+22:59:08.700 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+22:59:08.700 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+22:59:08.731 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+22:59:08.809 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+22:59:08.887 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+22:59:08.903 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8235 (http)
+22:59:08.919 [restartedMain] INFO  com.main.DemoApplication - Started DemoApplication in 1.417 seconds (JVM running for 414.352)
